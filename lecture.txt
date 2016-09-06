@@ -1,0 +1,11 @@
+1. create table sample
+
+CREATE TABLE Students
+(
+StudentNum int,
+Name varchar(255),
+Class varchar(255),
+subjectKorean int,
+subjectEnglish int,
+subjectMath int
+);
