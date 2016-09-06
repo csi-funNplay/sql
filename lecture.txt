@@ -9,3 +9,5 @@ subjectKorean int,
 subjectEnglish int,
 subjectMath int
 );
+
+2.
