@@ -14,15 +14,16 @@ select * from Students;
 
 3. insert data
 insert into Students values(1, '나연', '1반', 100, 75, 88);
-insert into Students values(2, '정연', '1반', 80, 91, 100);
-insert into Students values(3, '모모', '1반', 85, 100, 80);
-insert into Students values(4, '사나', '2반', 100, 70, 80);
-insert into Students values(5, '지효', '2반', 75, 90, 100);
-insert into Students values(6, '미나', '2반', 90, 100, 82);
-insert into Students values(7, '다현', '3반', 100, 100, 74);
-insert into Students values(8, '채영', '3반', 77, 99, 80);
-insert into Students values(9, '쯔위', '3반', 94, 84, 88);
-insert into Students values(10, '멍미', '3반', 100, 100, 100);
+insert into Students
+select 2, '정연', '1반', 80, 91, 100 from students union all
+select 3, '모모', '1반', 85, 100, 80 from students union all
+select 4, '사나', '2반', 100, 70, 80 from students union all
+select 5, '지효', '2반', 75, 90, 100 from students union all
+select 6, '미나', '2반', 90, 100, 82 from students union all
+select 7, '다현', '3반', 100, 100, 74 from students union all
+select 8, '채영', '3반', 77, 99, 80 from students union all
+select 9, '쯔위', '3반', 94, 84, 88 from students union all
+select 10, '멍미', '3반', 100, 100, 100 from students;
 
 4. update data
 update Students set Name='민아' where StudentNum=6;
