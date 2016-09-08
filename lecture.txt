@@ -1,40 +1,47 @@
-1. create table sample
-CREATE TABLE Students
+
+* 실습 주소 : http://www.w3schools.com/sql
+
+1. 테이블 만들기
+CREATE TABLE Exam
 (
-StudentNum int,
-Name varchar(255),
-Class varchar(255),
-Korean int,
-English int,
-Math int
+ StudentNo int,
+ Name varchar(255),
+ Class varchar(255),
+ Korean int,
+ English int,
+ Math int
 );
 
-2. select data
-select * from Students;
+2. 데이터 추가하기
+insert into Exam values(1, '나연', '1반', 100, 75, 88);
+insert into Exam
+select 2, '정연', '1반', 80, 91, 100 from Exam union all
+select 3, '모모', '1반', 85, 100, 80 from Exam union all
+select 4, '사나', '2반', 100, 70, 80 from Exam union all
+select 5, '지효', '2반', 75, 90, 100 from Exam union all
+select 6, '미나', '2반', 90, 100, 82 from Exam union all
+select 7, '다현', '3반', 100, 100, 74 from Exam union all
+select 8, '채영', '3반', 77, 99, 80 from Exam union all
+select 9, '쯔위', '3반', 94, 84, 88 from Exam union all
+select 10, '멍미', '3반', 100, 100, 100 from Exam;
 
-3. insert data
-insert into Students values(1, '나연', '1반', 100, 75, 88);
-insert into Students
-select 2, '정연', '1반', 80, 91, 100 from students union all
-select 3, '모모', '1반', 85, 100, 80 from students union all
-select 4, '사나', '2반', 100, 70, 80 from students union all
-select 5, '지효', '2반', 75, 90, 100 from students union all
-select 6, '미나', '2반', 90, 100, 82 from students union all
-select 7, '다현', '3반', 100, 100, 74 from students union all
-select 8, '채영', '3반', 77, 99, 80 from students union all
-select 9, '쯔위', '3반', 94, 84, 88 from students union all
-select 10, '멍미', '3반', 100, 100, 100 from students;
+3. 데이터 수정하기
+update Exam set Name='민아' where StudentNo=6;
 
-4. update data
-update Students set Name='민아' where StudentNum=6;
+4. 데이터 삭제하기
+delete from Exam where StudentNo=10;
 
-5. delete data
-delete * from where StudentNum=10;
 
-6. select data with function(sum function)
+5. 데이터 조회하기
+select * from Exam where class='1반';
+
+6. 데이터 조회하기(합계 계산)
 select class, sum(korean) korean_total, sum(english) english_total, sum(math) math_total 
-from Students group by Class;
+from Exam group by Class;
 
-7. select data with function(avg function)
+7. 데이터 조회하기(평균 계산)
 select class, avg(korean) korean_avg, avg(english) avg_total, avg(math) avg_total 
-from Students group by Class;
+from Exam group by Class;
+
+8. 테이블 삭제하기
+drop table Exam;
